@@ -10,7 +10,7 @@
 int p_oct(int n)
 {
 	int ret, i;
-	char * tmp;
+	char *tmp;
 
 	tmp = malloc(sizeof(char) * 64);
 	if (!tmp)

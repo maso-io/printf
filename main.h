@@ -27,22 +27,28 @@ int _printf(const char *format, ...);
 int _putchar(char);
 
 /* writes number to stdout */
-void print_int(int);
+int p_int(int);
 
 /* writes string to std out */
-int print_string(char *, int);
+int p_string(char *);
 
 /* writes float to stdout */
-void print_float(double);
+int p_float(double);
 
 /* writes u_int to stdout */
-void print_uint(u_int);
+int p_uint(u_int);
 
 /* writes hex to stdout */
 int p_hex(int);
 
 /* writes hex to stdout */
 int p_HEX(int);
+
+/* writes pointer to stdout */
+int p_pointer(void *);
+
+/* writes oct decimal to stdout*/
+int p_oct(int);
 
 /* links argument data to printing functions */
 int link_data(char c, va_list ap);

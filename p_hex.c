@@ -9,14 +9,17 @@
 
 int p_hex(int n)
 {
-	int ret;
-	char * tmp;
+	int ret, i;
+	char *tmp;
 
 	tmp = malloc(sizeof(char) * 20);
 	if (!tmp)
 		return (-1);
 	sprintf(tmp, "%x", n);
-	ret = write(1, tmp, sizeof(tmp));
+	ret = _strlen(tmp);
+	for (i = 0; i < ret; i++)
+		_putchar(tmp[i]);
+
 	free(tmp);
 
 	return (ret);
@@ -31,14 +34,17 @@ int p_hex(int n)
 
 int p_HEX(int n)
 {
-	int ret;
-	char * tmp;
+	int ret, i;
+	char *tmp;
 
 	tmp = malloc(sizeof(char) * 20);
 	if (!tmp)
 		return (-1);
 	sprintf(tmp, "%X", n);
-	ret = write(1, tmp, sizeof(tmp));
+	ret = _strlen(tmp);
+	for (i = 0; i < ret; i++)
+		_putchar(tmp[i]);
+
 	free(tmp);
 
 	return (ret);

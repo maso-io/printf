@@ -15,30 +15,38 @@ int link_data(char c, va_list ap)
 	switch (c)
 	{
 	case 'd':
-		print_int(va_arg(ap, int));
-		count++;
+		count += p_int(va_arg(ap, int));
 		break;
 	case 's':
-		count += print_string(va_arg(ap, char *), 0);
+		count += p_string(va_arg(ap, char *));
 		break;
 	case 'c':
 		count += _putchar(va_arg(ap, int));
 		break;
 	case 'f':
-		print_float(va_arg(ap, double));
-		count++;
+		count += p_float(va_arg(ap, double));
 		break;
 	case 'u':
-		print_uint(va_arg(ap, unsigned int));
-		count++;
+		count += p_uint(va_arg(ap, unsigned int));
 		break;
 	case 'i':
-		print_uint(va_arg(ap, unsigned int));
+		count += p_uint(va_arg(ap, unsigned int));
+		break;
+	case 'x':
+		count += p_hex(va_arg(ap, int));
+		break;
+	case 'o':
+		count += p_oct(va_arg(ap, int));
+		break;
+	case 'p':
+		count += p_pointer(va_arg(ap, void *));
 		break;
 	default:
+		_putchar('%');
+		_putchar(c);
+		count += 2;
 		break;
 	}
 
 	return (count);
 }
-

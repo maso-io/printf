@@ -2,7 +2,7 @@
 
 /**
  * p_pointer - writes pointer to stdout
- * @n: value to print
+ * @p: value to print
  *
  * Return: number of bytes printed
  */
