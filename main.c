@@ -43,6 +43,10 @@ int main(void)
     printf("Unknown:[%r]\n");
     _printf(NULL);
     /* printf(NULL);*/
+    _printf("%K\n");
+    printf("%K\n");
+    _printf("%!\n");
+    printf("%!\n");
     
     return (0);
 }
