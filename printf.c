@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 	flag = 1;
 	count = 0;
 
-	for (c = 0; format[c] != '\0'; c++)
+	for (c = 0; format && format[c] != '\0'; c++)
 	{
 		len_f++;
 	}
