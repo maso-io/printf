@@ -33,6 +33,8 @@ int _printf(const char *format, ...)
 			{
 				flag = 0;
 				_putchar(format[i]);
+			       	i++;
+				count++;
 			}
 			if (format && format[i] != '%' && flag)
 				_putchar(format[i]);
@@ -44,6 +46,10 @@ int _printf(const char *format, ...)
 			flag = 1;
 		}
 		va_end(ap);
+	}
+	else
+	{
+		return (-1);
 	}
 
 	return (count);
