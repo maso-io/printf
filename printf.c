@@ -9,15 +9,14 @@
 
 int _printf(const char *format, ...)
 {
-	int flag;
-	int count, i, c, len_f;
+	int flag, count, i, c, len_f;
 	va_list ap;
-	/*char *ch;*/
+	char *ch;
 
 	i = 0;
 	flag = 1;
 	count = 0;
-	/*ch ="csdibuoxXSp+#lhR";*/
+	ch = "+# !'$&()*-/;:<>=?[{}]~_@`|";
 
 	if (format == NULL)
 	{
@@ -34,7 +33,7 @@ int _printf(const char *format, ...)
 		va_start(ap, format);
 		while (format[i] != '\0')
 		{
-			/*int j, fmtsp_flag;
+			int j, fmtsp_flag;
 
 			fmtsp_flag = 0;
 
@@ -42,9 +41,9 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == ch[j])
 					fmtsp_flag = 1;
-					}*/
+			}
 
-			if (format[i] == '%' && /*(fmtsp_flag == 1 || (format[i + 1] >= 'A' && format[i + 1] <= 'F')))*/((format[i + 1] >= 'a' && format[i + 1] <= 'z') || (format[i + 1] >= 'A' && format[i + 1] <= 'F')))
+			if (format[i] == '%' && ((fmtsp_flag == 1) || (format[i + 1] >= 'a' && format[i + 1] <= 'z') || (format[i + 1] >= 'A' && format[i + 1] <= 'Z')))
 			{
 				count += link_data(format[i + 1], ap);
 				i += 1;
