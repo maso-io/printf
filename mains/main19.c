@@ -11,8 +11,9 @@ int main(void)
 {
 	int len, len2;
 
-	len = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
-	len2 = printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	len = _printf("%");
+	len2 = printf("%");
+	printf("prints no. of chars: len:%d len2: %d\n", len, len2);
 	fflush(stdout);
 	if (len != len2)
 	{

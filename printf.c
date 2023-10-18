@@ -10,13 +10,19 @@
 int _printf(const char *format, ...)
 {
 	int flag;
-	int count, i;
+	int count, i, c , len_f;
 	va_list ap;
-
+	
 	i = 0;
 	flag = 1;
 	count = 0;
-	if (format)
+
+	for (c = 0; format[c] != '\0'; c++)
+	{
+		len_f++;
+	}
+	
+	if (format && (format[i] != '%' || len_f != 1))
 	{
 		va_start(ap, format);
 		while (format[i] != '\0')
