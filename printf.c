@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 		len_f++;
 	}
 	
-	if (format && (format[i] != '%' || len_f != 1))
+	if (format && (format || format[i] != '%' || len_f != 1 ))
 	{
 		va_start(ap, format);
 		while (format[i] != '\0')
