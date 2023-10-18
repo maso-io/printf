@@ -10,43 +10,41 @@
 int _printf(const char *format, ...)
 {
 	int flag;
-	int count, i, c , len_f;
+	int count, i, c, len_f;
 	va_list ap;
-	char *ch;
-	
+	/*char *ch;*/
+
 	i = 0;
 	flag = 1;
 	count = 0;
-	ch ="csdibuoxXSp+#lhR";
-	
+	/*ch ="csdibuoxXSp+#lhR";*/
+
 	if (format == NULL)
 	{
 		return (-1);
 	}
-	
+
 	for (c = 0; format[c] != '\0'; c++)
 	{
 		len_f++;
 	}
-	
-	if (format && (format[i] != '%' || len_f != 1 ))
+
+	if (format && (format[i] != '%' || len_f != 1))
 	{
 		va_start(ap, format);
 		while (format[i] != '\0')
 		{
-			int j, fmtsp_flag;
+			/*int j, fmtsp_flag;
 
 			fmtsp_flag = 0;
-			
+
 			for (j = 0; ch[j] != '\0'; j++)
 			{
 				if (format[i + 1] == ch[j])
 					fmtsp_flag = 1;
-			}
-			
-			if (format[i] == '%' && (fmtsp_flag = 1 || (format[i + 1] >= 'A' && format[i + 1] <= 'F')))
-                        /* ((format[i + 1] >= 'a' && format[i + 1] <= 'z')
-                        || (format[i + 1] >= 'A' && format[i + 1] <= 'F'))) */
+					}*/
+
+			if (format[i] == '%' && /*(fmtsp_flag == 1 || (format[i + 1] >= 'A' && format[i + 1] <= 'F')))*/((format[i + 1] >= 'a' && format[i + 1] <= 'z') || (format[i + 1] >= 'A' && format[i + 1] <= 'F')))
 			{
 				count += link_data(format[i + 1], ap);
 				i += 1;
@@ -57,7 +55,7 @@ int _printf(const char *format, ...)
 			{
 				flag = 0;
 				_putchar(format[i]);
-			       	i++;
+				i++;
 				count++;
 			}
 			if (format && format[i] != '%' && flag)
