@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 					'z') || (format[i + 1] >= 'A' && format[i + 1] <= 'Z')))
 			{
 				count += link_data(format[i + 1], ap);
-				i += 2;
+				i += 1;
 				flag = 0;
 
 			}
@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 				flag = 0;
 				_putchar(format[i]);
 			}
-			if (format && format[i] != '%')
+			if (format && format[i] != '%' && flag)
 				_putchar(format[i]);
 			if (flag)
 			{

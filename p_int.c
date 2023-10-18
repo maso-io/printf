@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * p_int - writes int to stdout
  * @n: value to print
@@ -9,19 +8,19 @@
 
 int p_int(int n)
 {
-	int ret, i;
-	char *tmp;
+	int i;
+	char *buffer;
+	int needed;
 
-	tmp = malloc(sizeof(char) * 20);
-	if (!tmp)
+	needed = snprintf(NULL, 0, "%d", n);
+	buffer = malloc(sizeof(char) * needed);
+	if (!buffer)
 		return (-1);
-	sprintf(tmp, "%d", n);
-	ret = _strlen(tmp);
-	for (i = 0; i < ret; i++)
-		_putchar(tmp[i]);
+	sprintf(buffer, "%d", n);
+	for (i = 0; i < needed; i++)
+		_putchar(buffer[i]);
+	free(buffer);
 
-	free(tmp);
-
-	return (ret);
+	return (needed);
 }
 

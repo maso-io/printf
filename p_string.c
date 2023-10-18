@@ -9,19 +9,19 @@
 
 int p_string(char *s)
 {
-	int ret, i;
-	char *tmp;
+	int needed, i;
+	char *buffer;
 
-	tmp = malloc(sizeof(char) * _strlen(s));
-	if (!tmp)
+	needed = snprintf(NULL, 0, "%s", s);
+	buffer = malloc(sizeof(char) * needed);
+	if (!buffer)
 		return (-1);
-	sprintf(tmp, "%s", s);
-	ret = _strlen(tmp);
-	for (i = 0; i < ret; i++)
-		_putchar(tmp[i]);
+	sprintf(buffer, "%s", s);
+	for (i = 0; i < needed; i++)
+		_putchar(buffer[i]);
 
-	free(tmp);
+	free(buffer);
 
-	return (ret);
+	return (needed);
 }
 

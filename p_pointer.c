@@ -9,17 +9,17 @@
 
 int p_pointer(void *p)
 {
-	int ret, i;
-	char *tmp;
+	int needed, i;
+	char *buffer;
 
-	tmp = malloc(sizeof(char) * 64);
-	if (!tmp)
+	needed = snprintf(NULL, 0, "%p", p);
+	buffer = malloc(sizeof(char) * needed);
+	if (!buffer)
 		return (-1);
-	sprintf(tmp, "%p", p);
-	ret = _strlen(tmp);
-	for (i = 0; i < ret; i++)
-		_putchar(tmp[i]);
-	free(tmp);
+	sprintf(buffer, "%p", p);
+	for (i = 0; i < needed; i++)
+		_putchar(buffer[i]);
+	free(buffer);
 
-	return (ret);
+	return (needed);
 }

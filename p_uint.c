@@ -9,18 +9,18 @@
 
 int p_uint(uint n)
 {
-	int ret, i;
-	char *tmp;
+	int needed, i;
+	char *buffer;
 
-	tmp = malloc(sizeof(char) * 20);
-	if (!tmp)
+	needed = snprintf(NULL, 0, "%u", n);
+	buffer = malloc(sizeof(char) * needed);
+	if (!buffer)
 		return (-1);
-	sprintf(tmp, "%u", n);
-	ret = _strlen(tmp);
-	for (i = 0; i < ret; i++)
-		_putchar(tmp[i]);
-	free(tmp);
+	sprintf(buffer, "%u", n);
+	for (i = 0; i < needed; i++)
+		_putchar(buffer[i]);
+	free(buffer);
 
-	return (ret);
+	return (needed);
 }
 
