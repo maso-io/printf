@@ -17,12 +17,17 @@ int _printf(const char *format, ...)
 	flag = 1;
 	count = 0;
 
-	for (c = 0; format && format[c] != '\0'; c++)
+	if (format == NULL)
+	{
+		return (-1);
+	}
+	
+	for (c = 0; format[c] != '\0'; c++)
 	{
 		len_f++;
 	}
 	
-	if (format && (format || format[i] != '%' || len_f != 1 ))
+	if (format && (format[i] != '%' || len_f != 1 ))
 	{
 		va_start(ap, format);
 		while (format[i] != '\0')
