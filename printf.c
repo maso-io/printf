@@ -1,5 +1,14 @@
 #include "main.h"
 
+/*
+ * handle_string - dafa
+ * @fmt: A pointer to an array of chars
+ * @ix: An index of char
+ *
+ * Return: 1 valid char/ 0 invalid char
+ */
+int handle_string(const char *fmt, int ix);
+
 /**
  * _printf - custom print function
  * @format: string
@@ -11,12 +20,10 @@ int _printf(const char *format, ...)
 {
 	int flag, count, i, c, len_f;
 	va_list ap;
-	char *ch;
 
 	i = 0;
 	flag = 1;
 	count = 0;
-	ch = "+# !'$&()*-/;:<>=?[{}]~_@`|";
 
 	if (format == NULL)
 	{
@@ -33,17 +40,11 @@ int _printf(const char *format, ...)
 		va_start(ap, format);
 		while (format[i] != '\0')
 		{
-			int j, fmtsp_flag;
+			int fmtsp_flag;
 
-			fmtsp_flag = 0;
+			fmtsp_flag = handle_string(format, i + 1);
 
-			for (j = 0; ch[j] != '\0'; j++)
-			{
-				if (format[i + 1] == ch[j])
-					fmtsp_flag = 1;
-			}
-
-			if (format[i] == '%' && ((fmtsp_flag == 1) || (format[i + 1] >= 'a' && format[i + 1] <= 'z') || (format[i + 1] >= 'A' && format[i + 1] <= 'Z')))
+			if ((format[i] == '%') && (fmtsp_flag == 1))
 			{
 				count += link_data(format[i + 1], ap);
 				i += 1;
@@ -69,9 +70,32 @@ int _printf(const char *format, ...)
 		va_end(ap);
 	}
 	else
-	{
 		return (-1);
-	}
 
 	return (count);
+}
+
+/*
+ * handle_string - checks for valid character
+ * @fmt: A pointer to an array of chars
+ * @ix: tract the character index
+ *
+ * Return: 1 valid char or 0 invalid char
+ */
+int handle_string(const char *fmt, int ix)
+{
+	char *alph, *sp_chr;
+	int j;
+
+	alph = "abcdefghijklmnopqrstuxwxyzABCDEFGHIJKlMNOPQRSTUVWXYXZ";
+	sp_chr = "+# !'$&()*-/;:<>=?[{}]~_@`|";
+
+	for (j = 0; alph[j] != '\0'; j++)
+		if (fmt[ix] == alph[j])
+			return (1);
+	for (j = 0; sp_chr[j] != '\0'; j++)
+		if (fmt[ix] == sp_chr[j])
+			return (1);
+
+	return (0);
 }

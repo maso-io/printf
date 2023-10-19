@@ -53,4 +53,7 @@ int p_oct(int);
 /* links argument data to printing functions */
 int link_data(char c, va_list ap);
 
+/* check for valid characters */
+int handle_string(const char *fmt, int ix);
+
 #endif /* END MAIN */
