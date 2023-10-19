@@ -1,7 +1,7 @@
 #include "main.h"
 
-/*
- * handle_string - dafa
+/**
+ * handle_string - checks for valid character
  * @fmt: A pointer to an array of chars
  * @ix: An index of char
  *
@@ -18,7 +18,7 @@ int handle_string(const char *fmt, int ix);
 
 int _printf(const char *format, ...)
 {
-	int flag, count, i, c, len_f;
+	int flag, count, i, len_f;
 	va_list ap;
 
 	i = 0;
@@ -26,16 +26,12 @@ int _printf(const char *format, ...)
 	count = 0;
 
 	if (format == NULL)
-	{
 		return (-1);
-	}
 
-	for (c = 0; format[c] != '\0'; c++)
-	{
-		len_f++;
-	}
+	for (len_f = 0; format[c] != '\0'; len_f++)
+		continue;
 
-	if (format && (format[i] != '%' || len_f != 1))
+	if (format[i] != '%' || len_f != 1)
 	{
 		va_start(ap, format);
 		while (format[i] != '\0')
@@ -51,37 +47,38 @@ int _printf(const char *format, ...)
 				flag = 0;
 
 			}
-			if (format && (format[i] == format[i + 1]) && (format[i] == '%'))
+			if ((format[i] == format[i + 1]) && (format[i] == '%'))
 			{
 				flag = 0;
 				_putchar(format[i]);
 				i++;
 				count++;
 			}
-			if (format && format[i] != '%' && flag)
+			if (format[i] != '%' && flag)
 				_putchar(format[i]);
 			if (flag)
-			{
 				count++;
-			}
 			i++;
 			flag = 1;
 		}
 		va_end(ap);
 	}
 	else
+	{
 		return (-1);
+	}
 
 	return (count);
 }
 
-/*
+/**
  * handle_string - checks for valid character
  * @fmt: A pointer to an array of chars
  * @ix: tract the character index
  *
  * Return: 1 valid char or 0 invalid char
  */
+
 int handle_string(const char *fmt, int ix)
 {
 	char *alph, *sp_chr;
