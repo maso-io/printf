@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 
-	for (len_f = 0; format[c] != '\0'; len_f++)
+	for (len_f = 0; format[len_f] != '\0'; len_f++)
 		continue;
 
 	if (format[i] != '%' || len_f != 1)
