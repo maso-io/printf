@@ -1,12 +1,6 @@
 #include "main.h"
 
-/**
- * handle_string - checks for valid character
- * @fmt: A pointer to an array of chars
- * @ix: An index of char
- *
- * Return: 1 valid char/ 0 invalid char
- */
+/* returns char after specifier */
 int handle_string(const char *fmt, int ix);
 
 /**
@@ -15,7 +9,6 @@ int handle_string(const char *fmt, int ix);
  *
  * Return: number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
 	int flag, count, i, len_f;

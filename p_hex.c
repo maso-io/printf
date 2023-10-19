@@ -29,7 +29,7 @@ int p_hex(int n)
  * p_HEX - writes hexidecimal to stdout
  * @n: value to print
  *
- * neededurn: number of bytes printed
+ * Return: number of bytes printed
  */
 
 int p_HEX(int n)
