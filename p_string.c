@@ -11,6 +11,9 @@ int p_string(char *s)
 	int len;
 
 	len = 0;
+	if (!s)
+		return (write(1, "(null)", 6));
+
 	while (s[len] != '\0')
 	{
 		write(1, &s[len], 1);
