@@ -11,6 +11,12 @@ int p_int(int n)
 	int digit;
 
 	count = 0;
+	if (n == 0)
+	{
+		digit = (n % 10) + '0';
+		write(1, &digit, 1);
+		return (1);
+	}
 	if (n < 0)
 	{
 		_putchar('-');
