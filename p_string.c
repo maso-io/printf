@@ -11,7 +11,7 @@ int p_string(char *s)
 	int len;
 
 	len = 0;
-	if (!s)
+	if (s == NULL)
 		return (write(1, "(null)", 6));
 
 	while (s[len] != '\0')
