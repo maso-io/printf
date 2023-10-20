@@ -16,7 +16,7 @@ int p_int(int n)
 		_putchar('-');
 		count = p_int(n * -1);
 	}
-	if (n / 10 && n > 0)
+	if ((n / 10) && (n > 0))
 		count = p_int(n / 10);
 
 	digit = (n % 10) + '0';
