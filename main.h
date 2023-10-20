@@ -29,14 +29,14 @@ int _putchar(char);
 /* writes number to stdout */
 int p_int(int);
 
+/* writes u_int to stdout */
+int p_uint(u_int);
+
 /* writes string to std out */
 int p_string(char *);
 
 /* writes float to stdout */
 int p_float(double);
-
-/* writes u_int to stdout */
-int p_uint(u_int);
 
 /* writes hex to stdout */
 int p_hex(int);

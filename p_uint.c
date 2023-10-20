@@ -1,26 +1,22 @@
 #include "main.h"
-
 /**
- * p_uint - writes hexidecimal to stdout
- * @n: value to print
+ * p_uint - writes integer to stdout
+ * @n: int to write
  *
- * Return: number of bytes printed
+ * Return: the number of chars written
  */
-
-int p_uint(uint n)
+int p_uint(u_int n)
 {
-	int needed, i;
-	char *buffer;
+	int count;
+	u_int digit;
 
-	needed = snprintf(NULL, 0, "%u", n);
-	buffer = malloc(sizeof(char) * needed);
-	if (!buffer)
-		return (-1);
-	sprintf(buffer, "%u", n);
-	for (i = 0; i < needed; i++)
-		_putchar(buffer[i]);
-	free(buffer);
+	count = 0;
+	if (n / 10)
+		count = p_uint(n / 10);
 
-	return (needed);
+	digit = (n % 10) + '0';
+	write(1, &digit, 1);
+	count++;
+	return (count);
 }
 
