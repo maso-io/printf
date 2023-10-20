@@ -1,26 +1,30 @@
 #include "main.h"
 /**
- * p_int - writes int to stdout
- * @n: value to print
+ * p_int - writes integer to stdout
+ * @n: int to write
  *
- * Return: number of bytes printed
+ * Return: the number of chars written
  */
-
 int p_int(int n)
 {
-	int i;
-	char *buffer;
-	int needed;
+	int count;
+	int digit;
 
-	needed = snprintf(NULL, 0, "%d", n);
-	buffer = malloc(sizeof(char) * needed);
-	if (!buffer)
-		return (-1);
-	sprintf(buffer, "%d", n);
-	for (i = 0; i < needed; i++)
-		_putchar(buffer[i]);
-	free(buffer);
+	count = 0;
+	if (n < 0)
+	{
+		_putchar('-');
+		count = p_int(n * -1);
+	}
+	if ((n / 10) && (n > 0))
+		count = p_int(n / 10);
 
-	return (needed);
+	if (n > 0)
+	{
+		digit = (n % 10) + '0';
+		write(1, &digit, 1);
+		/*	printf("\nprintf_char: %d\n", digit);*/
+	}
+	count++;
+	return (count);
 }
-
