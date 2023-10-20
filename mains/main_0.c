@@ -11,14 +11,8 @@ int main(void)
 {
 	int len, len2;
 
-	len = _printf("%d", 2);
-	printf("\n---- ---- ---- ----\n");
-	printf("%d\n", len);
-	printf("\n---- ---- ---- ----\n");
-	len2 = printf("%d", 2);
-	printf("\n---- ---- ---- ----\n");
-	printf("%d\n", len2);
-	printf("\n---- ---- ---- ----\n");
+	len = _printf("%d", 1024);
+	len2 = printf("%d", 1024);
 	fflush(stdout);
 	if (len != len2)
 	{
