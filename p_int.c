@@ -17,7 +17,7 @@ int p_int(int n)
 		write(1, &digit, 1);
 		return (1);
 	}
-	if (INT_MIN <= n && n < 0)
+	if (n >= INT_MIN && n < 0)
 	{
 		_putchar('-');
 		if (n == INT_MIN)
@@ -25,10 +25,10 @@ int p_int(int n)
 		else
 			count = p_int(n * -1);
 	}
-	if ((n / 10) && (0 <= n && n <= INT_MAX))
+	if ((n / 10) && (n >= 0 && n <= INT_MAX))
 		count = p_int(n / 10);
 
-	if (0 <= n && n <= INT_MAX)
+	if (n >= 0 && n <= INT_MAX)
 	{
 		digit = (n % 10) + '0';
 		write(1, &digit, 1);
