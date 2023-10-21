@@ -11,6 +11,8 @@
 #include <stdarg.h>
 /* + sprintf */
 #include <stdio.h>
+/* + limits */
+#include <limits.h>
 
 /**
  * u_int - Typedef for unsigned int

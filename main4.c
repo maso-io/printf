@@ -10,9 +10,10 @@
  */
 int main(void)
 {
-	int len, len2;
+	int len2, len;
 
 	len = _printf("%d", INT_MIN);
+	_putchar('\n');
 	len2 = printf("%d", INT_MIN);
 	fflush(stdout);
 	if (len != len2)
